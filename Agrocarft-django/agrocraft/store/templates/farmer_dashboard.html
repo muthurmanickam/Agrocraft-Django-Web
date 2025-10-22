@@ -1,0 +1,20 @@
+{% load static %}
+<h2>Farmer Dashboard</h2>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <input name="name" placeholder="Product Name" required><br>
+    <input name="price" type="number" placeholder="Price" required><br>
+    <textarea name="description" placeholder="Description"></textarea><br>
+    <input type="file" name="image"><br>
+    <button type="submit">Add Product</button>
+</form>
+<h3>My Products</h3>
+{% for product in my_products %}
+    <div>
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Product image" width="90">
+        {% else %}
+            <img src="{% static 'images/no-image.png' %}" width="90">
+        {% endif %}
+        <b>{{ product.name }}</b> - ₹{{ product.price }} <br> {{ product.description }}
+    </div>
+{% endfor %}

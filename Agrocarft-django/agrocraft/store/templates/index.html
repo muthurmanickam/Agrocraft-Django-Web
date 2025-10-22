@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agrocraft - Buy from Farmers</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main-banner">
+        <img src="{% static 'images/Farmer.jpg' %}" alt="Farm banner">
+        <h1>Agrocraft: Buy Direct from Farmers!</h1>
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}!
+                <a href="{% url 'logout' %}">Logout</a>
+                <a href="{% url 'farmer_dashboard' %}">Farmer Dashboard</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product">
+                <h2>{{ product.name }}</h2>
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="Product image">
+                {% else %}
+                    <img src="{% static 'images/no-image.png' %}" alt="No image">
+                {% endif %}
+                <p><b>Price:</b> ₹{{ product.price }} per kg</p>
+                <p><b>Farmer:</b> {{ product.farmer.username }}</p>
+                <p>{{ product.description }}</p>
+                <a class="buy-btn" href="{% url 'buy_product' product.id %}">Buy</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

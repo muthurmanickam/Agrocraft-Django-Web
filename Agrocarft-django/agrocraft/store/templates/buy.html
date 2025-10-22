@@ -1,0 +1,6 @@
+<h2>Buy: {{ product.name }}</h2>
+<form method="post">{% csrf_token %}
+  <input name="quantity" type="number" value="1" min="1" required>
+  <button type="submit">Place Order</button>
+</form>
+{% if message %}<p>{{ message }}</p>{% endif %}

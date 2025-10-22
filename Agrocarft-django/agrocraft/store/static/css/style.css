@@ -1,0 +1,73 @@
+body {
+    background: linear-gradient(120deg, #e4ffe2 0%, #fef6d7 100%);
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0; padding: 0;
+}
+.main-banner {
+    background: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px 0 10px 0;
+    box-shadow: 0 2px 10px #dfebcc;
+}
+.main-banner img {
+    width: 90%; max-width: 900px; border-radius: 24px;
+    box-shadow: 0 4px 20px #eee;
+}
+.main-banner h1 {
+    color: #37ad37; font-size: 2.4em; margin-top: 20px;
+    font-weight: 700; letter-spacing: 2px;
+}
+.nav-links a {
+    background: #4cd964;
+    color: #fff; text-decoration: none;
+    padding: 8px 18px; border-radius: 10px; margin: 0 6px;
+    font-weight: bold; box-shadow: 0 2px 6px #ccc;
+    transition: background 0.2s;
+}
+.nav-links a:hover { background: #ff9200; }
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 34px;
+}
+.product {
+    background: #fffde7;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #ecd48d;
+    padding: 16px 24px;
+    width: 300px;
+    margin-bottom: 16px;
+    text-align: left;
+    transition: transform 0.2s;
+}
+.product img {
+    width: 90%; border-radius: 10px; margin-bottom: 12px;
+    border: 2px solid #fffbe0;
+    box-shadow: 0 2px 8px #e3b149;
+}
+.product:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 24px #e3b149;
+}
+.product h2 {
+    color: #ff9200; margin-bottom: 0;
+}
+.buy-btn {
+    padding: 8px 18px;
+    background: linear-gradient(110deg, #4cd964 60%, #ffb63c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px #ccc;
+    transition: background 0.3s;
+    display: inline-block;
+    text-align:center;
+}
+.buy-btn:hover { background: linear-gradient(110deg, #ffb63c 60%, #4cd964 100%);}

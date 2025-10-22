@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agrocraft Sign Up</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0; padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: url("{% static 'images/login-banner.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background: linear-gradient(120deg, rgba(255,255,255,0.92) 60%, rgba(245,255,213,0.97) 100%);
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 1;
+        }
+        .signup-box {
+            position: relative;
+            z-index: 2;
+            width: 370px;
+            background: #ffffffee;
+            margin: 54px auto 0 auto;
+            border-radius: 26px;
+            box-shadow: 0 6px 44px #b9b987;
+            padding: 38px 32px 32px 32px;
+        }
+        .signup-box h2 {
+            text-align: center;
+            color: #368936;
+            font-size: 2em;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+        .signup-box form {
+            margin-bottom: 18px;
+        }
+        .signup-box input[type="text"], .signup-box input[type="password"], .signup-box input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 11px 0 16px 0;
+            border: 2px solid #37ad37;
+            border-radius: 8px;
+            font-size: 1em;
+            background: #eafbe7;
+        }
+        .signup-box button {
+            width: 100%;
+            background: linear-gradient(90deg, #37ad37 70%, #ff9200 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.07em;
+            font-weight: bold;
+            padding: 12px;
+            box-shadow: 0 2px 8px #ccc;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .signup-box button:hover { background: linear-gradient(90deg, #ff9200 70%, #37ad37 100%);}
+        .signup-box a {
+            display: block; 
+            text-align: center;
+            color: #37ad37;
+            margin-top: 15px; 
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 1em;
+            letter-spacing: 2px;
+        }
+        .logo-img {
+            display: block;
+            margin: 0 auto 14px auto;
+            border-radius: 18px;
+            max-width: 90px;
+            box-shadow: 0 2px 6px #aac;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="signup-box">
+        <img src="{% static 'images/farm-banner.jpg' %}" class="logo-img" alt="Farm logo">
+        <h2>Sign Up</h2>
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+        <a href="{% url 'login' %}">Already have an account? Login here</a>
+    </div>
+</body>
+</html>
